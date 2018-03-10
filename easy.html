@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Snake</title>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+</head>
+<body class="body-background">
+    <div class="container" style="margin-top:50px">
+		<div class="row">
+			<div class="col-sm-8 col-md-8 col-md-offset-2 col-md-offset-2">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form role="form">
+							<div class="row">
+								<div class="col-sm-12 col-md-8  col-md-offset-2 ">
+									<table class='full-width-table'>
+										<tr>
+											<td>Score:  <span id='score'></span></td>
+											<td align='right'>High Score:
+												<script>
+													if(localStorage.HighScore == undefined){
+														document.write('0');
+														
+													}else{
+														document.write(localStorage.HighScore);
+													}
+												</script>
+											</td>
+											
+										</tr>
+									</table>
+										<canvas class="playground" id="the-game" width="320" height="240">
+										<script src="js/easy.js"></script>
+										
+								</div>
+							</div></br>
+												<div class="col-sm-12 col-md-8  col-md-offset-2 ">
+													<div class="form1-group">
+														<button type="button" title="Back" onclick='location.href="index.html"' class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-arrow-left"></span></button>
+													</div>
+
+												</div>
+						</form>
+					</div>
+                </div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>home</title>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.min.css">
+		
+		<script src="bootstrap-3.3.7/js/jquery.min.js"></script>
+		<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class="body-background">
+    <div class="container" style="margin-top:40px">
+		<div class="row">
+			<div class="col-sm-8 col-md-8 col-md-offset-2 col-md-offset-2">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form role="form" action="#" method="POST">
+							<fieldset>
+								<div class="row">
+									<div align="center" class="logo-container">
+										<img class="logo-img" src="img/logo.jpg" alt="">
+									</div>
+								</div>
+									<div class="row">
+										<div class="col-sm-12 col-md-8  col-md-offset-2 ">
+											<div class="form-group">
+												<button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#myModal" title="Play" >Play</button>
+											</div>
+											
+												<div class="form-group">
+													<button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#modalhighscore" title="High Score">Score</button>
+												</div>
+												
+													<div class="form-group">
+														<button type="button"  class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#modalhelp" title="Help">Help</button>
+													</div>
+														<div class="form-group">
+															<img style="width:19%; height; 10%;" src="img/facebook_logos_PNG19753.png" alt=""/>
+															<img style="width:19%; height; 10%;" src="img/Marcus-Roberto-Google-Play-Gmail.ico" alt=""/>
+															<img style="width:19%; height; 10%;" src="img/playstore.png" alt="Playstore"/>
+															<img style="width:19%; height; 10%;" src="img/580b57fcd9996e24bc43c545.png" alt=""/>
+															<img style="width:19%; height; 10%;" src="img/580b57fcd9996e24bc43c53e.png" alt=""/>
+															
+															
+														</div>
+										</div>
+									</div>
+								
+							</fieldset>
+						</form>
+					</div>
+                </div>
+			</div>
+		</div>
+		
+		<!--Modal-->						
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h1 class="modal-title text-center">Level</h1>
+						</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<button type="button" title="Easy" onclick='location.href="easy.html"' class="btn btn-lg btn-primary btn-block">Easy</button>
+									<button type="button" title="Medium" onclick='location.href="medium.html"' class="btn btn-lg btn-primary btn-block">Medium</button>
+									<button type="button" title="Hard" onclick='location.href="hard.html"' class="btn btn-lg btn-primary btn-block">Hard</button>
+								</div>
+							</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-danger"  data-dismiss='modal' title="Cancel"><span Class="glyphicon glyphicon-remove"></span> Cancel</button>
+									
+								</div>
+								
+					</div>
+			</div>
+
+		</div>
+		
+		
+		<div class="modal fade" id="modalhighscore" role="dialog">
+			<div class="modal-dialog">
+
+			<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h1 class="modal-title text-center">Score</h1>
+					</div>
+						<div class="modal-body">
+							<table class="table text-center1">
+								<thead>
+									<tr>
+										<th scope="col">Top</th>
+										<th scope="col">score</th>
+									</tr>
+								</thead>
+								<tbody>
+									<script>
+										
+										var score = [];
+										for(var i = 1; i<= localStorage.clickcountPlay; i++){
+											score.push(parseInt(localStorage.getItem(i+'_score')));
+										}
+										
+										score.sort(function(a,b){return a - b });
+										for(var i = 1; i<= score.length; i++){
+											document.write('<tr>');
+												document.write('<td>'+i+'</td>');
+												document.write('<td>'+score[score.length-i]+'</td>');
+											document.write('</tr>');
+										}
+										
+									</script>
+								</tbody>
+								
+							</table>
+
+						</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary"  onclick="localStorage.clear();location.reload()" title="Clear All"><span Class="glyphicon glyphicon-trash"></span> Clear All</button>
+								
+								<button type="button" class="btn btn-danger"  data-dismiss='modal' title="Cancel"><span Class="glyphicon glyphicon-remove"></span> Cancel</button>
+								
+							</div>
+				</div>
+
+			</div>
+		</div>
+		
+		<div class="modal fade" id="modalhelp" role="dialog">
+			<div class="modal-dialog">
+
+			<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"></button>
+						<h1 class="modal-title text-center">How To Play Snake Game <span Class="glyphicon glyphicon-question-sign"></span></h1>
+					</div>
+						<div class="modal-body">
+							<h3>Instruction:</h3>
+							<ul style="list-style-type:square">
+								<li>Use the arrows keys to direct the snake around the screen and 	eat the dots/apple.
+								</li>
+								<li>The more the dots/apple the snake eats, the longer it grows and the higher your score.
+								</li>
+								<li>Avoid causing the snake to eat itself, and use any keys to start the game again.
+								</li>
+							</ul>
+							NOTE: If your score is zero it will not show in the score list.
+						
+						</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-dismiss="modal" title="Ok"><span Class="glyphicon glyphicon-ok"></span> Ok</button>
+								
+								<button type="button" class="btn btn-danger"  data-dismiss='modal' title="Cancel"><span Class="glyphicon glyphicon-remove"></span> Cancel</button>
+								
+							</div>
+				</div>
+
+			</div>
+		</div>
+		
+		
+	</div>
+	
+						 <script src="bootstrap-3.3.7/vendor/jquery/jquery.min.js"></script>
+						<script src="bootstrap-3.3.7/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
